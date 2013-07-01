@@ -259,9 +259,17 @@ void TextParser::getValue(const std::string& label,std::string& value_string,int
     } else {
       TextParserValue *value;
       ret = dataTree()->getLeafValue(label, &value);
-      value_string = value->value();
-      if (ret == TP_MISSING_PATH_ELEMENT_ERROR)
+      // 2013-July-1st Takashi Suzuki modified
+      if(ret==TP_NO_ERROR){
+	value_string = value->value();
+      } else {
 	TextParserErrorHandler(ret, label);
+      }
+      // original code causes SEGV.
+      //value_string = value->value();
+      // if (ret == TP_MISSING_PATH_ELEMENT_ERROR)
+      // 	TextParserErrorHandler(ret, label);
+      // 2013-July-1st Takashi Suzuki modified end.
     }
     
   } catch (std::exception ex) {
@@ -284,7 +292,7 @@ void TextParser::getValue(const std::string& label,std::string& value_string,int
 
 TextParserError TextParser::getValue(const std::string& label,std::string& value_string)
 {
-  //  std::string value_string;
+
   TextParserError ret = TP_NO_ERROR;
   
   try {
@@ -293,9 +301,17 @@ TextParserError TextParser::getValue(const std::string& label,std::string& value
     } else {
       TextParserValue *tmpvalue;
       ret = dataTree()->getLeafValue(label, &tmpvalue);
-      value_string = tmpvalue->value();
-      if (ret == TP_MISSING_PATH_ELEMENT_ERROR)
+      // 2013-July-1st Takashi Suzuki modified
+      if(ret==TP_NO_ERROR){
+	value_string = tmpvalue->value();
+      } else {
 	TextParserErrorHandler(ret, label);
+      }
+      // original code causes SEGV.
+      // value_string = tmpvalue->value();
+      // if (ret == TP_MISSING_PATH_ELEMENT_ERROR)
+      // 	TextParserErrorHandler(ret, label);
+      // 2013-July-1st Takashi Suzuki modified end.
     }
     
   } catch (std::exception ex) {

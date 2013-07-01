@@ -5065,10 +5065,12 @@ TextParserError TextParserTree::getElement(const std::string& label, const TextP
       *element = parent_dir->getLeaf(path);
       //    std::cout << "getElement 8" << path << *element <<std::endl;
     }
-    // if (*element == 0) {
-    //       std::cout << "getElement 9" << label <<std::endl;
-    //   return TP_MISSING_PATH_ELEMENT_ERROR;
-    // }
+
+    // uncomment 2013-July-1st Takashi Suzuki. 
+     if (*element == 0) {
+       //  std::cout << "getElement 9" << label <<std::endl;
+       return TP_MISSING_PATH_ELEMENT_ERROR;
+     }
 
     if (element==NULL && *element == 0) {
           //std::cout << "getElement 9" << label <<std::endl;
@@ -5103,10 +5105,10 @@ TextParserError TextParserTree::getLeafValue(const  std::string& path, TextParse
   TextParserError ret;
   TextParserElement* element = 0;
   ret = getElement(path, TP_LEAF_ELEMENT, &element); // パスからエレメントを取得
-  //  std::cout<<__FUNCTION__<<" 2 "<<path<<std::endl;
+  //  std::cout<<__FUNCTION__<<" 2 "<<path<< " "<<ret <<std::endl;
 
   if (ret != TP_NO_ERROR){
-    //    std::cout<<__FUNCTION__<<" 3 "<<path<<std::endl;
+    //        std::cout<<__FUNCTION__<<" 3 "<<path<<std::endl;
     return ret;}
   //  std::cout<<__FUNCTION__<<" 3-1 "<<path<<" "<< element <<std::endl;
   if(element!=0){
