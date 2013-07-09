@@ -87,5 +87,6 @@ AC_CONFIG_FILES([
 		 Examples/Makefile
 		 Examples/tpp_examples/Makefile
                  include/Makefile
+                 bin/Makefile
 		 src/Makefile])
 AC_OUTPUT

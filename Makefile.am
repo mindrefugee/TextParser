@@ -6,8 +6,9 @@
 #
 
 ACLOCAL_AMFLAGS=-I m4
-SUBDIRS = src include Examples 
+SUBDIRS = bin src include Examples
 EXTRA_DIST=Doxyfile Makefile_doxygen doc README Makefile_hand ChangeLog LICENSE
+DIST_SUBDIRS=bin src include Examples
 DISTCLEANFILES=*~ *.o *.lo *.la *.a
 MAINTAINERCLEANFILES=doxygen
 ENABLEMPI=@enablempi@
