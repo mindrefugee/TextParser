@@ -1,6 +1,9 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Enable mpi. Please set FC to fortran 90 compiler. */
+/* Enable fortran. Please set FC to fortran 90 compiler. */
+#undef ENABLE_FORTRAN
+
+/* Enable mpi. Please set CXX to mpi enabled c++ compiler. */
 #undef ENABLE_MPI
 
 /* Define to 1 if you have the <dlfcn.h> header file. */

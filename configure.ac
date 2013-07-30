@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.59])
-AC_INIT([TextParser],[1.3d],[keno@iis.u-tokyo.ac.jp],[TextParser])
+AC_INIT([TextParser],[1.3da],[keno@iis.u-tokyo.ac.jp],[TextParser])
 
 AC_CONFIG_SRCDIR([include/TextParser.h])
 AC_CONFIG_HEADERS([config.h])
@@ -33,11 +33,12 @@ dnl fortran option
 AC_MSG_CHECKING(whether to enable fortran feature)
 AC_ARG_ENABLE(fortran,AS_HELP_STRING([--enable-fortran],
 	[turn on fortran feature [default no]]),
-	[enable_fortran="$enableval"],[enable_mpi="no"])
+	[enable_fortran="$enableval"],[enable_fortran="no"])
 if test $enable_fortran != "no"; then
    AC_MSG_RESULT(yes)
-   AC_DEFINE(ENABLE_MPI, ,
-   Enable mpi. Please set FC to fortran 90 compiler.)
+#   AC_DEFINE(ENABLE_MPI, ,
+   AC_DEFINE(ENABLE_FORTRAN, ,
+   Enable fortran. Please set FC to fortran 90 compiler.)
 
 #   AC_SUBST(enablempi,[yes])
 else

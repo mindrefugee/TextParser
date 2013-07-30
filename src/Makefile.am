@@ -43,6 +43,8 @@ CXXFLAGS=-I../include
 CLEANFILES= ${lib_LTLIBRARIES} ${dotalibs} 
 DISTCLEANFILES=*~ ${lib_LTLIBRARIES} ${dotalibs}
 
+LDFLAGS= -version-info 1:3
+
 TextParser.o : ../include/TextParser.h ../include/TextParserTree.h ../include/TextParserCommon.h ../include/TextParserElement.h
 TextParserTree.o: ../include/TextParserTree.h ../include/TextParserCommon.h ../include/TextParserElement.h
 TextParserElement.o: ../include/TextParserCommon.h ../include/TextParserElement.h
